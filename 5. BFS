@@ -1,0 +1,49 @@
+Breadth-First Search (BFS) is a graph traversal algorithm that explores neighbors level by level. It uses a queue to keep track of nodes to visit next.
+->Uses: Shortest path in unweighted graphs, connected components, etc.
+->Data Structures: Queue (FIFO), Visited array
+->Time Complexity: O(V + E)
+->Works for: Directed or Undirected graphs.
+
+Code:
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+void bfs(int start, const vector<vector<int>>& adj, vector<bool>& visited) {
+    queue<int> q;
+    q.push(start);
+    visited[start] = true;
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        cout << node << " ";
+        for (int neighbor : adj[node]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+
+int main() {
+    int V = 6;
+    vector<vector<int>> adj(V);
+    adj[0] = {1, 2};
+    adj[1] = {0, 3, 4};
+    adj[2] = {0, 4};
+    adj[3] = {1, 5};
+    adj[4] = {1, 2};
+    adj[5] = {3};
+
+    vector<bool> visited(V, false);
+    cout << "BFS traversal starting from node 0: ";
+    bfs(0, adj, visited);
+    cout << endl;
+    return 0;
+}
+
+Output:
+BFS traversal starting from node 0: 0 1 2 3 4 5
+
+
