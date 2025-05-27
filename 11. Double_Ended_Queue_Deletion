@@ -1,0 +1,23 @@
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    deque<int> dq = {10, 20, 30, 40, 50};
+
+    // Delete from front
+    if (!dq.empty()) {
+        dq.pop_front();
+    }
+
+    // Delete from rear
+    if (!dq.empty()) {
+        dq.pop_back();
+    }
+
+    // Display deque
+    for (int x : dq) cout << x << " ";
+    cout << "\n";
+
+    return 0;
+}
