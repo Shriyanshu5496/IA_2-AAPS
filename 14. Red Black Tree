@@ -1,0 +1,32 @@
+A Red-Black Tree is a type of self-balancing binary search tree used in computer science to maintain sorted data and allow fast lookup, insertion, and deletion. It ensures the tree remains approximately balanced, giving O(log n) time complexity for operations like search, insert, and delete.
+->Key Properties of a Red-Black Tree
+Each node has an extra bit for color: red or black. The tree satisfies these properties:
+Every node is either red or black.
+The root is always black.
+All leaves (NIL or null pointers) are black.
+Red nodes cannot have red children (no two red nodes in a row).
+Every path from a node to its descendant NIL nodes has the same number of black nodes.
+These rules ensure the tree is roughly balanced.
+
+->Why Red-Black Trees?
+They prevent the tree from becoming too unbalanced (like a linked list).
+Compared to AVL trees (another self-balancing tree), red-black trees are faster for insertions and deletions, though slightly slower for lookups.
+Used in many standard libraries (e.g., TreeMap and TreeSet in Java, and std::map in C++ STL).
+
+->Operations
+1. Insertion
+Insert like in a normal BST.
+Color the new node red.
+Fix any violations of the red-black rules using:
+Recoloring
+Rotations (left-rotate, right-rotate)
+
+2. Deletion
+Deleting a black node might violate the properties.
+Fixes involve rotations and recoloring, often more complex than insertion.
+
+->Rotations
+Rotations are used to preserve the tree properties:
+Left Rotation: Pivot node moves left, right child becomes parent.
+Right Rotation: Pivot node moves right, left child becomes parent.
+These help maintain the balance of the tree.
